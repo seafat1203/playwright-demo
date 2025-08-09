@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { sendNotificationEmail } from './utils/emailSender';
+import { sendNotificationEmail } from '../utils/emailSender';
 
 test('测试邮件发送功能', async () => {
   await sendNotificationEmail(
