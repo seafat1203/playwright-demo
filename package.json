@@ -11,15 +11,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemailer": "^7.0.5"
+  },
   "devDependencies": {
     "@playwright/test": "^1.54.2",
     "@types/node": "^24.1.0",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.2"
-  },
-  "dependencies": {
-    "nodemailer": "^7.0.5",
-    "express": "^4.19.2",
-    "playwright": "^1.46.0"
   }
 }
