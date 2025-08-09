@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "web": "node server.js",
-  "worker": "node worker.js",
-  "test:ssn": "npx playwright test tests/ssn-booking-render.spec.ts --project=chromium --reporter=line"
+    "web": "node server.js",
+    "worker": "node worker.js",
+    "test:ssn": "npx playwright test tests/ssn-booking-render.spec.ts --project=chromium --reporter=line"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^7.0.5"
   },
   "devDependencies": {
