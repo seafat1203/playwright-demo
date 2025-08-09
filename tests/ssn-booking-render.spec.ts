@@ -33,14 +33,14 @@ test('SSN booking retry until available', async ({ page }) => {
       }
 
       if (stillBlocked) {
-        console.log(`🔁 第 ${i} 次：仍被限流，等待 ${delayMs}ms 后重试...`);
+        console.log(`🔁 第 ${i} 次：暂无空余约会，等待 ${delayMs}ms 后重试...`);
         await page.waitForTimeout(delayMs);
         await page.goto(url, { waitUntil: 'domcontentloaded' });
       } else {
         // ✅ 找到“未被限流/可能已开放”
         await sendNotificationEmail(
           'bangbangbang.paris@gmail.com',
-          '🎉 SSN 页面可能已开放，请尽快操作！'
+          '🎉 SSN 约会页面可能已开放，请尽快操作！'
         );
         success = true;
       }

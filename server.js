@@ -1,19 +1,15 @@
-const express = require('express');
-const { spawn } = require('child_process');
+import express from "express";
+import fetch from "node-fetch";
 
 const app = express();
-const TOKEN = process.env.RUN_TOKEN;
+const PORT = process.env.PORT || 3000;
 
-app.get('/', (_req, res) => res.send('OK'));
-
-app.post('/run', (req, res) => {
-  const auth = req.headers.authorization || '';
-  if (!TOKEN || auth !== `Bearer ${TOKEN}`) return res.status(401).send('Unauthorized');
-
-  const child = spawn('npm', ['run', 'test:ssn'], { stdio: 'inherit' });
-  child.on('close', code => console.log('Playwright exit code:', code));
-  res.status(202).send('Started');
+app.post("/run", async (req, res) => {
+  // 调用 Worker 的 URL
+  await fetch(process.env.WORKER_URL, { method: "POST" });
+  res.status(202).send("Task sent to worker");
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('Server listening on', port));
+app.listen(PORT, () => {
+  console.log(`Web service running on port ${PORT}`);
+});
