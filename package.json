@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "web": "node server.js",
     "test:ssn": "npx playwright test tests/ssn-booking-render.spec.ts --project=chromium --reporter=line"
