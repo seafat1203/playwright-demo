@@ -1,19 +1,22 @@
 import nodemailer from 'nodemailer';
 
 export async function sendNotificationEmail(to: string, subject: string) {
+  const user = process.env.GMAIL_USER!;
+  const pass = process.env.GMAIL_APP_PASS!;
+
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'bangbangbang.paris@gmail.com',
-      pass: 'erus dkgw myeu onjm', // Gmail 应用专用密码
+      user,
+      pass,
     },
   });
 
   const mailOptions = {
-    from: 'bangbangbang.paris@gmail.com',
+    from: user,
     to,
     subject,
-    text: subject, // 内容就是标题本身
+    text: subject,
   };
 
   try {
