@@ -6,7 +6,7 @@ test('SSN booking retry until available', async ({ page }) => {
   const url = 'https://www.seine-saint-denis.gouv.fr/index.php/booking/create/9845/0';
   const errorText = 'Veuillez réessayer ultérieurement.';
   const delayMs = 30000;
-  const maxAttempts = 100;
+  const maxAttempts = 10;
 
   await allure.step('打开预约页面', async () => {
     await page.goto(url);
