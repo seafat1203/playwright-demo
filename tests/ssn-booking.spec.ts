@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { allure } from 'allure-playwright';
-import { exec } from 'child_process';
-import { sendNotificationEmail } from './utils/emailSender';
+import { exec } from 'child_process'; 
+import { sendNotificationEmail } from '../utils/emailSender';
 
 test('SSN booking retry until available', async ({ page }) => {
   const url = 'https://www.seine-saint-denis.gouv.fr/index.php/booking/create/9845/0';
