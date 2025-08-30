@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 
+
 export async function sendNotificationEmail(to: string, subject: string) {
   const user = process.env.GMAIL_USER!;
   const pass = process.env.GMAIL_APP_PASS!;

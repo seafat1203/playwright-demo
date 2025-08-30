@@ -2,12 +2,14 @@ import { test, expect } from '@playwright/test';
 import { allure } from 'allure-playwright';
 import { exec } from 'child_process'; 
 import { sendNotificationEmail } from '../utils/emailSender';
+import dotenv from 'dotenv';
+dotenv.config();
 
 test('SSN booking retry until available', async ({ page }) => {
   const url = 'https://www.seine-saint-denis.gouv.fr/index.php/booking/create/9845/0';
   const errorText = 'Veuillez réessayer ultérieurement.';
-  const delayMs = 30000; // 每次重试间隔
-  const maxAttempts = 100; 
+  const delayMs = 60000; // 每次重试间隔
+  const maxAttempts = 30; 
 
   await allure.step('打开预约页面', async () => {
     await page.goto(url);
@@ -57,6 +59,7 @@ test('SSN booking retry until available', async ({ page }) => {
   'bangbangbang.paris@gmail.com',
   'Préfecture Seine-Saint-Denis 本次刷新已结束，暂时没有发现空位'
   );
+
 });
 
 

@@ -12,12 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "express": "^4.19.2",
     "node-fetch": "^3.3.2",
     "nodemailer": "^7.0.5"
   },
   "devDependencies": {
     "@playwright/test": "^1.54.2",
+    "@types/dotenv": "^8.2.3",
     "@types/node": "^24.1.0",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.2"
